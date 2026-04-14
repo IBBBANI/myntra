@@ -2,6 +2,8 @@ from rest_framework import viewsets
 from .models import Product
 from .serializers import ProductSerializer
 from rest_framework.filters import SearchFilter
+from django.shortcuts import render
+
 
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
@@ -22,4 +24,6 @@ class ProductViewSet(viewsets.ModelViewSet):
 
         return queryset
 
-   
+    def product_list(request):
+         products = Product.objects.all()
+         return render(request, 'products.html', {'products': products})

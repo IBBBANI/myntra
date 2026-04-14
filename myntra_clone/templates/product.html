@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Products</h2>
+
+{% for product in products %}
+  <div>
+    <h3>{{ product.name }}</h3>
+    <p>₹{{ product.price }}</p>
+
+    <a href="/add-to-cart/{{ product.id }}/">Add to Cart</a>
+    <a href="/add-to-wishlist/{{ product.id }}/">❤️ Wishlist</a>
+  </div>
+{% endfor %}
+
+{% endblock %}
